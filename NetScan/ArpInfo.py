@@ -4,9 +4,17 @@
 
 # lib
 from scapy.all import *
+import sys
 
 # setup
-target_list = ['192.168.0.0/24', '10.25.82.0/24']
+if sys.argv[1] == None:
+    target_list = ['192.168.0.0/24', '10.25.82.0/24']
+else:
+    target_list = sys.argv[1]
+if sys.argv[2] == None:
+    adapter = 'eth0'
+else:
+    adapter = sys.argv[2]
 
 # arp scan
 def arp_scan(target_ip, interface):
@@ -25,6 +33,6 @@ def arp_scan(target_ip, interface):
 # main script
 
 for target in target_list:
-    scan_result = arp_scan(target, 'eth0')
+    scan_result = arp_scan(target, adapter)
     for entry in scan_result:
         print("IP: {}, MAC: {}".format(entry['IP'], entry['MAC']))
