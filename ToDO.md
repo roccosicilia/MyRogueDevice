@@ -2,5 +2,6 @@
 # ToDo
 
 ARP scan
- - Broadcast ARP request for GW (X.Y.Z.1,254)
+ - Broadcast ARP request for target network
+ - verify GW
  - arp-scan con NIC conf. in L2
