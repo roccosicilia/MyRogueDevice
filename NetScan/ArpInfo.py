@@ -25,6 +25,6 @@ def arp_scan(target_ip, interface):
 # main script
 
 for target in target_list:
-    scan_result = arp_scan(target)
+    scan_result = arp_scan(target, 'eth0')
     for entry in scan_result:
         print("IP: {}, MAC: {}".format(entry['IP'], entry['MAC']))
