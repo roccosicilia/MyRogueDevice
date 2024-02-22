@@ -8,7 +8,7 @@ import sys
 
 # setup
 if len(sys.argv) >= 2:
-    adapter = sys.argv[2]
+    adapter = sys.argv[1]
 else:
     adapter = 'eth0' # change if different
 
