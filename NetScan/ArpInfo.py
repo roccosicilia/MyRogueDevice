@@ -38,5 +38,5 @@ def arp_sniff(packet):
 sniff(iface=adapter, filter='arp', prn=arp_sniff, timeout=sniffer_timeout)
 
 print("+---------------------------------------------+")
-print("Sniffed ARP packets: {}".format(len(captured_pkt)))
+print("Sniffed ARP packets on {}: {}".format(adapter, len(captured_pkt)))
 print(captured_pkt)
