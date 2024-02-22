@@ -7,7 +7,7 @@ from scapy.all import *
 import sys
 
 # setup
-if sys.argv.count >= 3:
+if len(sys.argv) >= 3:
     target_list = sys.argv[1]
     adapter = sys.argv[2]
 else:
