@@ -13,7 +13,7 @@ else:
     adapter = 'eth0' # change if different
 
 # arp sniff func
-sniffer_timeout = 15
+sniffer_timeout = 60
 captured_pkt = []
 def arp_sniff(packet):
     if ARP in packet and packet[ARP].op == 1:
