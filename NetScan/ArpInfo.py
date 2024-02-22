@@ -15,15 +15,15 @@ else:
     adapter = 'eth1' # change if different
 
 # arp scan
-arp_request = Ether(dst="ff:ff:ff:ff:ff:ff") / ARP(op=1, pdst=target_list)
-ans,uans = srp(arp_request, timeout=2, iface=adapter, verbose=False)
-
 result = []
-for sent, received in ans:
+for target in target_list:
+    arp_request = Ether(dst="ff:ff:ff:ff:ff:ff") / ARP(op=1, pdst=target)
+    ans,uans = srp(arp_request, timeout=2, iface=adapter, verbose=False)
+    for sent, received in ans:
         result.append({'IP': received.psrc, 'MAC': received.hwsrc})
 
 # arp scan output
 for entry in result:
-        print(entry)
+    print(entry)
 
 # arp sniff
