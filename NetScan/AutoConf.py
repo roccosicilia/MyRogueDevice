@@ -6,6 +6,12 @@
 from scapy.all import *
 import sys
 
+# setup
+if len(sys.argv) >= 2:
+    adapter = sys.argv[2]
+else:
+    adapter = 'eth0' # change if different
+
 # arp sniff func
 sniffer_timeout = 15
 captured_pkt = []
