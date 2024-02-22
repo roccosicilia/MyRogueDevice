@@ -8,7 +8,7 @@ import sys
 
 # setup
 if sys.argv[1] == None:
-    target_list = ['192.168.0.0/24', '10.25.82.0/24']
+    target_list = ['192.168.0.0/24', '172.16.0.0/20']
 else:
     target_list = sys.argv[1]
 if sys.argv[2] == None:
@@ -27,4 +27,5 @@ for sent, received in ans:
 # arp scan output
 for entry in result:
         print(entry)
-        
+
+# arp sniff
