@@ -7,14 +7,12 @@ from scapy.all import *
 import sys
 
 # setup
-if sys.argv[1] == None:
-    target_list = ['192.168.0.0/24', '172.16.0.0/20']
-else:
+if sys.argv.count >= 3:
     target_list = sys.argv[1]
-if sys.argv[2] == None:
-    adapter = 'eth0'
-else:
     adapter = sys.argv[2]
+else:
+    target_list = ['192.168.0.0/24', '172.16.0.0/20']
+    adapter = 'eth1' # change if different
 
 # arp scan
 arp_request = Ether(dst="ff:ff:ff:ff:ff:ff") / ARP(op=1, pdst=target_list)
