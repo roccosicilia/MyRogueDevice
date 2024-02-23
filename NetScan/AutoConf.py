@@ -26,5 +26,7 @@ print("Sniffed ARP packets on {}: {}".format(adapter, len(captured_pkt)))
 print(captured_pkt)
 
 for frame in captured_pkt:
-    print(frame)
+    single_packet = str(frame).split(">,")
+    for x in single_packet:
+        print(frame)
     print("-----")
