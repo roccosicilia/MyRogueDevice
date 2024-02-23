@@ -23,10 +23,19 @@ sniff(iface=adapter, filter='arp', prn=arp_sniff, timeout=sniffer_timeout)
 
 print("#"*75)
 print("Sniffed ARP packets on {}: {}".format(adapter, len(captured_pkt)))
-print(captured_pkt)
+#print(captured_pkt)
 
+# print ARP frame list
+print("#"*75)
 for frame in captured_pkt:
-    single_packet = str(frame).split(">,")
-    for x in single_packet:
-        print(frame)
+    print(frame)
     print("-----")
+
+# define IP list
+ip_list = []
+for frame in captured_pkt:
+    single_frame = str(frame).split(" ")
+    for x in single_frame:
+        ip_list.append(x[5])
+        ip_list.append(x[7])
+print(ip_list)
