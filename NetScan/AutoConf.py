@@ -35,7 +35,6 @@ for frame in captured_pkt:
 ip_list = []
 for frame in captured_pkt:
     single_frame = str(frame).split(" ")
-    for x in single_frame:
-        ip_list.append(x[5])
-        ip_list.append(x[7])
+    ip_list.append(single_frame[5])
+    ip_list.append(single_frame[7])
 print(ip_list)
