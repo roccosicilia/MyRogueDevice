@@ -21,6 +21,11 @@ def arp_sniff(packet):
 
 sniff(iface=adapter, filter='arp', prn=arp_sniff, timeout=sniffer_timeout)
 
-print("+---------------------------------------------+")
+print("#"*75)
 print("Sniffed ARP packets on {}: {}".format(adapter, len(captured_pkt)))
 print(captured_pkt)
+
+captured_list = captured_pkt.split(",")
+for frame in captured_list:
+    print(frame)
+    print("-----")
