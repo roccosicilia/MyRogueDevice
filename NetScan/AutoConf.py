@@ -38,3 +38,6 @@ for frame in captured_pkt:
     ip_list.append(single_frame[5])
     ip_list.append(single_frame[7])
 print(ip_list)
+
+mygw = max(ip_list, key=ip_list.count)
+print(mygw)
